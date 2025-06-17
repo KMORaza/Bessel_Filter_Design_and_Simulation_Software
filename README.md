@@ -27,14 +27,14 @@ Bₙ(s) = (2n-1)Bₙ₋₁(s) + s²Bₙ₋₂(s)
 ```
 ### Filter Transformations
 1. **Low-pass Prototype Normalization**:
-   - Poles are scaled to achieve unity cutoff frequency: s → s/ωc
+   - Poles are scaled to achieve unity cutoff frequency: `s → s/ωc`
 2. **Frequency Transformations**:
-   - **Low-pass to High-pass**: s → ωc/s
-   - **Low-pass to Band-pass**: s → (s² + ω0²)/(Bs)
-   - **Low-pass to Band-stop**: s → Bs/(s² + ω0²)
+   - **Low-pass to High-pass**: `s → ωc/s`
+   - **Low-pass to Band-pass**: `s → (s² + ω0²)/(Bs)`
+   - **Low-pass to Band-stop**: `s → Bs/(s² + ω0²)`
    where ω0 is center frequency and B is bandwidth
 3. **Bilinear Transform (Analog to Digital)**:
-   s → (2/T)(z-1)/(z+1)
+   `s → (2/T)(z-1)/(z+1)`
    where T is sampling period
 
 ### Pole-Zero Analysis
@@ -47,15 +47,15 @@ Bₙ(s) = (2n-1)Bₙ₋₁(s) + s²Bₙ₋₂(s)
 
 ### Response Calculations
 1. **Magnitude Response**:
-   |H(jω)| = 1/|D(jω)|
-   where D(jω) is denominator polynomial evaluated at s=jω
+   `|H(jω)| = 1/|D(jω)|`
+   where `D(jω)` is denominator polynomial evaluated at `s=jω`
 2. **Phase Response**:
-   φ(ω) = -arg(D(jω)) (in degrees)
+   `φ(ω) = -arg(D(jω))` (in degrees)
 3. **Group Delay**:
-   τ(ω) = -dφ/dω ≈ -Δφ/Δω (numerical differentiation)
+   `τ(ω) = -dφ/dω ≈ -Δφ/Δω` (numerical differentiation)
 4. **Time Domain Responses**:
-   - Step response: Output when input u(t) = 1
-   - Impulse response: Output when input δ(t) = 1 at t=0
+   - Step response: Output when input `u(t) = 1`
+   - Impulse response: Output when input `δ(t) = 1` at `t=0`
 
 ### Screenshots
 ![](https://github.com/KMORaza/Bessel_Filter_Design_and_Simulation_Software/blob/main/Bessel%20Filter%20Design%20and%20Simulation%20Software/screenshots/screenshot.png)
