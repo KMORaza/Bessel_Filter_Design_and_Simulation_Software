@@ -1,0 +1,132 @@
+.panel-header {
+    -fx-background-color: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+    -fx-padding: 10;
+    -fx-border-color: #b0b0b0;
+    -fx-border-width: 2;
+}
+
+.title-label {
+    -fx-font-family: "Consolas";
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #003087;
+    -fx-effect: dropshadow(gaussian, #003087, 2, 0.5, 0, 0);
+}
+
+.control-panel {
+    -fx-background-color: #ffffff;
+    -fx-padding: 20;
+    -fx-border-color: #c0c0c0;
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.control-label {
+    -fx-font-family: "Verdana";
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-background-color: #e8e8e8;
+    -fx-padding: 5;
+    -fx-border-color: #b0b0b0;
+    -fx-border-width: 1;
+}
+
+.control-combo {
+    -fx-font-family: "Verdana";
+    -fx-background-color: #f5f5f5;
+    -fx-text-fill: #000000;
+    -fx-border-color: #a0a0a0;
+    -fx-border-width: 1;
+    -fx-background-radius: 3;
+}
+
+.control-textfield {
+    -fx-font-family: "Consolas";
+    -fx-background-color: #f5f5f5;
+    -fx-text-fill: #000000;
+    -fx-border-color: #a0a0a0;
+    -fx-border-width: 1;
+    -fx-background-radius: 3;
+    -fx-prompt-text-fill: #666666;
+}
+
+.control-checkbox {
+    -fx-font-family: "Bahnschrift";
+    -fx-text-fill: #000000;
+    -fx-padding: 5;
+}
+
+.control-button {
+    -fx-font-family: "Verdana";
+    -fx-background-color: linear-gradient(to bottom, #d0d0d0, #b0b0b0);
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-border-color: #909090;
+    -fx-border-width: 2;
+    -fx-background-radius: 5;
+    -fx-padding: 8;
+    -fx-effect: innershadow(gaussian, #000000, 2, 0.5, 0, 0);
+}
+
+.control-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+}
+
+.output-panel {
+    -fx-background-color: #f0f0f0;
+    -fx-padding: 10;
+}
+
+.response-chart {
+    -fx-font-family: "Verdana";
+    -fx-background-color: #ffffff;
+    -fx-border-color: #b0b0b0;
+    -fx-border-width: 1;
+}
+
+.output-textarea {
+    -fx-font-family: "Consolas";
+    -fx-background-color: #f5f5f5;
+    -fx-text-fill: #000000;
+    -fx-border-color: #b0b0b0;
+    -fx-border-width: 1;
+}
+
+.tab-pane {
+    -fx-font-family: "Verdana";
+}
+
+.tab {
+    -fx-font-family: "Verdana";
+    -fx-background-color: #e8e8e8;
+    -fx-text-fill: #000000;
+}
+
+.tab:selected {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #b0b0b0;
+    -fx-border-width: 1 1 0 1;
+}
+
+.scatter-chart .series0 .chart-symbol { /* Poles (X) */
+    -fx-background-color: red;
+    -fx-shape: "M-2,-2 L2,2 M-2,2 L2,-2";
+    -fx-scale-x: 2;
+    -fx-scale-y: 2;
+}
+
+.scatter-chart .series1 .chart-symbol { /* Zeros (O) */
+    -fx-background-color: blue;
+    -fx-shape: "M-2,0 A2,2 0 1,1 2,0 A2,2 0 1,1 -2,0";
+    -fx-scale-x: 2;
+    -fx-scale-y: 2;
+}
+
+.scatter-chart .series2 .chart-symbol { /* Unit Circle */
+    -fx-background-color: black;
+    -fx-shape: "M0,0 L0,0.1";
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+}

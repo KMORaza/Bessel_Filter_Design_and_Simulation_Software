@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:controller="besselfilter.software.codebase.BesselFilterController" xmlns:fx="http://javafx.com/fxml" prefWidth="800" prefHeight="600" stylesheets="@styles.css">
+    <VBox AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" alignment="CENTER" styleClass="panel-header">
+        <Label text="BESSEL FILTER DESIGN UNIT" styleClass="title-label"/>
+        <Separator prefWidth="780"/>
+    </VBox>
+    <GridPane AnchorPane.topAnchor="80" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" hgap="10" vgap="10" alignment="CENTER" styleClass="control-panel">
+        <Label text="FILTER TYPE" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="control-label"/>
+        <ComboBox fx:id="filterTypeCombo" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="control-combo"/>
+
+        <Label text="FILTER ORDER" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="control-label"/>
+        <TextField fx:id="orderField" promptText="Order or blank for auto" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="control-textfield"/>
+        <CheckBox fx:id="autoOrderCheck" text="AUTO" GridPane.columnIndex="2" GridPane.rowIndex="1" styleClass="control-checkbox"/>
+
+        <Label text="CUTOFF FREQ (Hz)" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="control-label"/>
+        <TextField fx:id="cutoffField" promptText="e.g., 1000" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="control-textfield"/>
+        <Label text="CENTER FREQ (Hz)" GridPane.columnIndex="2" GridPane.rowIndex="2" styleClass="control-label"/>
+        <TextField fx:id="centerField" promptText="e.g., 2000" prefWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="2" styleClass="control-textfield"/>
+
+        <Label text="DIGITAL IIR" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="control-label"/>
+        <CheckBox fx:id="digitalCheck" text="ENABLE" GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="control-checkbox"/>
+        <Label text="SAMPLE RATE (Hz)" GridPane.columnIndex="2" GridPane.rowIndex="3" styleClass="control-label"/>
+        <TextField fx:id="sampleRateField" promptText="e.g., 44100" prefWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="3" styleClass="control-textfield"/>
+
+        <Label text="PLOT DURATION (s)" GridPane.columnIndex="0" GridPane.rowIndex="4" styleClass="control-label"/>
+        <TextField fx:id="plotDurationField" promptText="e.g., 0.01" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="4" styleClass="control-textfield"/>
+
+        <Button fx:id="designButton" text="DESIGN" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.columnSpan="2" styleClass="control-button" onAction="#designFilter"/>
+    </GridPane>
+    <VBox AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" styleClass="output-panel">
+        <TabPane fx:id="responseTabs" prefHeight="400">
+            <Tab text="Magnitude Response">
+                <VBox>
+                    <LineChart fx:id="magnitudeChart" styleClass="response-chart">
+                        <xAxis>
+                            <NumberAxis label="Frequency (Hz)" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis fx:id="magnitudeYAxis" label="Magnitude (dB)" />
+                        </yAxis>
+                    </LineChart>
+                    <CheckBox fx:id="linearScaleCheck" text="Linear Scale" alignment="CENTER" styleClass="control-checkbox" onAction="#toggleMagnitudeScale"/>
+                </VBox>
+            </Tab>
+            <Tab text="Phase Response">
+                <VBox>
+                    <LineChart fx:id="phaseChart" styleClass="response-chart">
+                        <xAxis>
+                            <NumberAxis label="Frequency (Hz)" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Phase (degrees)" />
+                        </yAxis>
+                    </LineChart>
+                    <LineChart fx:id="groupDelayChart" styleClass="response-chart">
+                        <xAxis>
+                            <NumberAxis label="Frequency (Hz)" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Group Delay (s)" />
+                        </yAxis>
+                    </LineChart>
+                </VBox>
+            </Tab>
+            <Tab text="Time-Domain Response">
+                <VBox>
+                    <LineChart fx:id="stepResponseChart" styleClass="response-chart">
+                        <xAxis>
+                            <NumberAxis label="Time (s)" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Amplitude" />
+                        </yAxis>
+                    </LineChart>
+                    <LineChart fx:id="impulseResponseChart" styleClass="response-chart">
+                        <xAxis>
+                            <NumberAxis label="Time (s)" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Amplitude" />
+                        </yAxis>
+                    </LineChart>
+                </VBox>
+            </Tab>
+            <Tab text="Pole-Zero Plot">
+                <ScatterChart fx:id="poleZeroChart" styleClass="response-chart">
+                    <xAxis>
+                        <NumberAxis label="Real Part" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Imaginary Part" />
+                    </yAxis>
+                </ScatterChart>
+            </Tab>
+        </TabPane>
+        <TextArea fx:id="outputArea" prefHeight="100" editable="false" promptText="Filter design results..." styleClass="output-textarea"/>
+    </VBox>
+</AnchorPane>
